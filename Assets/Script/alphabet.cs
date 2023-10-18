@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class alphabet : MonoBehaviour
 {
+    public GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,8 +30,10 @@ public class alphabet : MonoBehaviour
             // Optionally handle the scene change within the coin script
             if (GameManager.Instance.totalAlphabet >= 5)
             {
-                // SceneManager.LoadScene("SceneName");
                 Debug.Log("here");
+                //GameManager.Instance.DisplayRestartUI();
+                //SceneManager.LoadScene("Puzzle");
+
             }
 
             // Destroy the coin
