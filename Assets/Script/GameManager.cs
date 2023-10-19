@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     public int totalAlphabet = 0;
     public GameObject restartUI;
+    public Text uiText; // Reference to the UI text component
 
     // Start is called before the first frame update
     void Start()
@@ -38,10 +40,10 @@ public class GameManager : MonoBehaviour
     public void AddCount()
     {
         totalAlphabet++;
-        if (totalAlphabet >= 5)
-        {
-            DisplayRestartUI();
-        }
+        // if (totalAlphabet >= 5)
+        // {
+        //     DisplayRestartUI();
+        // }
     }
 
     public void DisplayRestartUI()
@@ -56,6 +58,22 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Restart UI is not assigned or was destroyed.");
         }
         //StartCoroutine(WaitAndRestartGame(2f));
+    }
+
+     public void UpdateUI()
+    {
+        if (totalAlphabet == 2)
+        {
+            uiText.text = "Kill _ _";
+        }
+        if (totalAlphabet == 3)
+        {
+            uiText.text = "Kill the _";
+        }
+        else if (totalAlphabet == 5)
+        {
+            uiText.text = "Kill the Zombies!";
+        }
     }
 
     //public void StartGame()

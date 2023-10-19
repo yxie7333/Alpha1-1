@@ -26,11 +26,12 @@ public class alphabet : MonoBehaviour
         {
             // Communicate with the GameManager to increase coin count
             GameManager.Instance.AddCount();
+            GameManager.Instance.UpdateUI();
 
             // Optionally handle the scene change within the coin script
             if (GameManager.Instance.totalAlphabet >= 5)
             {
-                Debug.Log("here");
+                Debug.Log("All items collected");
                 //GameManager.Instance.DisplayRestartUI();
                 //SceneManager.LoadScene("Puzzle");
 
