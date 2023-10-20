@@ -33,8 +33,8 @@ public class Canvas : MonoBehaviour
     public void FirstTimePlayState()
     {
         
-            PlayerPrefs.SetInt("PlayerBlade", 0);
-            PlayerPrefs.SetInt("PlayerLife", 0);
+            PlayerPrefs.SetInt("PlayerBlade", 3);
+            PlayerPrefs.SetInt("PlayerLife", 5);
             PlayerPrefs.SetInt("PlayerStone", 0);
 
         

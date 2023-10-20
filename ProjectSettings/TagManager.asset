@@ -10,6 +10,8 @@ TagManager:
   - EnemyAttack
   - PlayerSkill
   - Item
+  - Alphabet
+  - Grid
   layers:
   - Default
   - TransparentFX
