@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject); // Makes the object persistent across scenes
+            DontDestroyOnLoad(gameObject); // Makes the object persistent across scenes
         }
         else
         {
@@ -40,10 +40,10 @@ public class GameManager : MonoBehaviour
     public void AddCount()
     {
         totalAlphabet++;
-        // if (totalAlphabet >= 5)
-        // {
-        //     DisplayRestartUI();
-        // }
+         if (totalAlphabet >= 5)
+         {
+             DisplayRestartUI();
+         }
     }
 
     public void DisplayRestartUI()
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("Restart UI is not assigned or was destroyed.");
         }
-        //StartCoroutine(WaitAndRestartGame(2f));
+        StartCoroutine(WaitAndRestartGame(2f));
     }
 
      public void UpdateUI()
@@ -76,17 +76,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    //public void StartGame()
-    //{
-    //    SceneManager.LoadScene("SampleScene");
-    //    //SceneManager.LoadScene("Background", LoadSceneMode.Additive);
-    //}
+    public void StartGame()
+    {
+       SceneManager.LoadScene("SampleScene");
+        //SceneManager.LoadScene("Background", LoadSceneMode.Additive);
+    }
 
-    //private IEnumerator WaitAndRestartGame(float seconds)
-    //{
-    //    yield return new WaitForSeconds(seconds);
-    //    StartGame();
-    //}
+    private IEnumerator WaitAndRestartGame(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        StartGame();
+    }
 
     public void RestartGame()
     {
