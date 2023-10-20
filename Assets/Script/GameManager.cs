@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject restartUI;
     public Text uiText; // Reference to the UI text component
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject); // Makes the object persistent across scenes
+            DontDestroyOnLoad(gameObject); // Makes the object persistent across scenes
         }
         else
         {
@@ -40,15 +41,14 @@ public class GameManager : MonoBehaviour
     public void AddCount()
     {
         totalAlphabet++;
-        // if (totalAlphabet >= 5)
-        // {
-        //     DisplayRestartUI();
-        // }
+         if (totalAlphabet >= 5)
+         {
+             DisplayRestartUI();
+         }
     }
 
     public void DisplayRestartUI()
     {
-        restartUI.SetActive(true);
         if (restartUI != null)
         {
             restartUI.SetActive(true);
@@ -57,42 +57,49 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("Restart UI is not assigned or was destroyed.");
         }
-        //StartCoroutine(WaitAndRestartGame(2f));
+        StartCoroutine(WaitAndRestartGame(10f));
     }
 
      public void UpdateUI()
     {
         if (totalAlphabet == 2)
         {
-            uiText.text = "Kill _ _";
+            uiText.text = "Complete _ _";
         }
         if (totalAlphabet == 3)
         {
-            uiText.text = "Kill the _";
+            uiText.text = "Complete the jig _";
         }
-        else if (totalAlphabet == 5)
+        else if (totalAlphabet == 4)
         {
-            uiText.text = "Kill the Zombies!";
+            uiText.text = "Complete the jigsaw puzzle!";
+            // StartCoroutine(PauseThenDisplayRestartUI());
         }
     }
 
-    //public void StartGame()
-    //{
-    //    SceneManager.LoadScene("SampleScene");
-    //    //SceneManager.LoadScene("Background", LoadSceneMode.Additive);
-    //}
+    public void StartGame()
+    {
+       SceneManager.LoadScene("SampleScene");
+        //SceneManager.LoadScene("Background", LoadSceneMode.Additive);
+    }
 
-    //private IEnumerator WaitAndRestartGame(float seconds)
-    //{
-    //    yield return new WaitForSeconds(seconds);
-    //    StartGame();
-    //}
+    private IEnumerator WaitAndRestartGame(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        StartGame();
+    }
 
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         restartUI.SetActive(false);
     }
+//     private IEnumerator PauseThenDisplayRestartUI()
+// {
+//     yield return new WaitForSeconds(3f); // Wait for 3 seconds
+//     DisplayRestartUI();
+// }
+
 
 
 }

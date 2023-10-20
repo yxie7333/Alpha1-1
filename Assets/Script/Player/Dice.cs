@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
+
 public class Dice : MonoBehaviour {
 
     // Array of dice sides sprites to load from Resources folder
@@ -14,6 +16,7 @@ public class Dice : MonoBehaviour {
     public List<GameObject> alphabetObjects = new List<GameObject>();
 
     public Text resultText;  // 对UI Text的引用
+
 
 	// Use this for initialization
 	private void Start () {

@@ -32,8 +32,8 @@ public class alphabet : MonoBehaviour
             if (GameManager.Instance.totalAlphabet >= 5)
             {
                 Debug.Log("All items collected");
-                //GameManager.Instance.DisplayRestartUI();
-                //SceneManager.LoadScene("Puzzle");
+                GameManager.Instance.DisplayRestartUI();
+                SceneManager.LoadScene("Puzzle");
 
             }
 
