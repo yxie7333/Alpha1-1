@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-
-
-
 public class Player : MonoBehaviour
 {
     public float mySpeed;
@@ -41,8 +38,6 @@ public class Player : MonoBehaviour
     
     [HideInInspector] public int playerBlade;
     Canvas myCanvas;
-
-
     public void Awake()
     {
         myAnim = GetComponent<Animator>();
@@ -69,7 +64,6 @@ public class Player : MonoBehaviour
         {
             isJumpPressed = true;
             canJump = false;
-
         }
 
         // Dodge operation
@@ -87,10 +81,13 @@ public class Player : MonoBehaviour
         // Skill Operation
         if (Input.GetKeyDown(KeyCode.K))
         {
-            myAnim.SetTrigger("Skill");
-            playerBlade--;
-            PlayerPrefs.SetInt("PlayerBlade", playerBlade);
-            myCanvas.BladeUpdate(); 
+            if (playerBlade > 0)
+            {
+                myAnim.SetTrigger("Skill");
+                playerBlade--;
+                PlayerPrefs.SetInt("PlayerBlade", playerBlade);
+                myCanvas.BladeUpdate();
+            }
         }
 
         //if (Input.GetKeyDown(KeyCode.Return))
@@ -210,6 +207,7 @@ public class Player : MonoBehaviour
             playerLife--;
             PlayerPrefs.SetInt("PlayerLife", playerLife);
             myCanvas.LifeUpdate();
+
             // when player is alive
             if (playerLife >= 1) {
                 isHurt = true;
