@@ -89,22 +89,22 @@ public class Pice : MonoBehaviour
         if (collision.tag == "Grid")
         {
             Grid grid = collision.GetComponent<Grid>();
-            if (grid.hasPut)
+            if (!grid.hasPut)
             {
                 triggerGrid = grid;
                 currentGrid = int.Parse(collision.name);
                 //---------------如果掠过就放置 打开下面的
-                //if (currentGrid == index)
-                //{
-                //hasPut = true;
+                if (currentGrid == index)
+                {
+                hasPut = true;
                 ////格子下icon显示
-                //collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                //Destroy(gameObject);
+                collision.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                Destroy(gameObject);
                 ////换位
-                //transform.position = collision.transform.position;
-                //followEnable = false;
+                transform.position = collision.transform.position;
+                followEnable = false;
                 //-------------------
-                // }
+                 }
             }
             
         }
