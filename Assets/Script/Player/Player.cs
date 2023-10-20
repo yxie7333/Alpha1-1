@@ -1,16 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// For Analytics
-using UnityEngine.Networking;
-using Proyecto26;
-
-[System.Serializable]
-public class PlayerData
-{
-    public string name;
-    public string score;
-}
 
 
 
@@ -52,22 +42,6 @@ public class Player : MonoBehaviour
     [HideInInspector] public int playerBlade;
     Canvas myCanvas;
 
-    // For Analytics
-    /*
-    public void Start()
-    {
-        PlayerData playerData = new PlayerData();
-        playerData.name = "John";
-        playerData.score = "100";
-
-        string json = JsonUtility.ToJson(playerData);
-
-        RestClient.Post("https://yanjungu-unity-analytics-default-rtdb.firebaseio.com/.json", playerData);
-        Debug.Log("analystic");
-
-    }
-    */
-
 
     public void Awake()
     {
@@ -95,15 +69,7 @@ public class Player : MonoBehaviour
         {
             isJumpPressed = true;
             canJump = false;
-            // For Analytics
-            PlayerData playerData = new PlayerData();
-            playerData.name = Time.timeSinceLevelLoad.ToString();
-            playerData.score = transform.position.ToString();
 
-            string json = JsonUtility.ToJson(playerData);
-
-            RestClient.Post("https://yanjungu-unity-analytics-default-rtdb.firebaseio.com/.json", playerData);
-            Debug.Log("analystic");
         }
 
         // Dodge operation

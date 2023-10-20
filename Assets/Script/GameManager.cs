@@ -3,6 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+// For Analytics
+using UnityEngine.Networking;
+using Proyecto26;
+
+// For Analytics
+[System.Serializable]
+public class PlayerData // analytics data structure
+{
+    public string order;
+    public string position;
+}
+
 
 public class GameManager : MonoBehaviour
 {
@@ -11,6 +23,10 @@ public class GameManager : MonoBehaviour
     public int totalAlphabet = 0;
     public GameObject restartUI;
     public Text uiText; // Reference to the UI text component
+
+    // For Analytics
+    public Transform playerTransform; // to get the position of player
+
 
 
     // Start is called before the first frame update
@@ -40,11 +56,19 @@ public class GameManager : MonoBehaviour
 
     public void AddCount()
     {
-        totalAlphabet++;
+         totalAlphabet++;
          if (totalAlphabet >= 5)
          {
              DisplayRestartUI();
          }
+        // For Analytics
+        PlayerData playerData = new PlayerData();
+        playerData.order = totalAlphabet.ToString();
+        playerData.position = playerTransform.position.ToString();
+
+        string json = JsonUtility.ToJson(playerData);
+
+        RestClient.Post("https://yanjungu-unity-analytics-default-rtdb.firebaseio.com/.json", playerData);
     }
 
     public void DisplayRestartUI()

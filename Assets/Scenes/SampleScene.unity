@@ -4078,6 +4078,7 @@ MonoBehaviour:
   totalAlphabet: 0
   restartUI: {fileID: 493909875}
   uiText: {fileID: 1900019015}
+  playerTransform: {fileID: 1606465686}
 --- !u!4 &980538135
 Transform:
   m_ObjectHideFlags: 0
