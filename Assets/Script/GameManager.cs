@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject restartUI;
     public Text uiText; // Reference to the UI text component
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,7 +49,6 @@ public class GameManager : MonoBehaviour
 
     public void DisplayRestartUI()
     {
-        restartUI.SetActive(true);
         if (restartUI != null)
         {
             restartUI.SetActive(true);
@@ -57,22 +57,23 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("Restart UI is not assigned or was destroyed.");
         }
-        StartCoroutine(WaitAndRestartGame(2f));
+        StartCoroutine(WaitAndRestartGame(10f));
     }
 
      public void UpdateUI()
     {
         if (totalAlphabet == 2)
         {
-            uiText.text = "Kill _ _";
+            uiText.text = "Complete _ _";
         }
         if (totalAlphabet == 3)
         {
-            uiText.text = "Kill the _";
+            uiText.text = "Complete the jig _";
         }
-        else if (totalAlphabet == 5)
+        else if (totalAlphabet == 4)
         {
-            uiText.text = "Kill the Zombies!";
+            uiText.text = "Complete the jigsaw puzzle!";
+            // StartCoroutine(PauseThenDisplayRestartUI());
         }
     }
 
@@ -93,6 +94,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         restartUI.SetActive(false);
     }
+//     private IEnumerator PauseThenDisplayRestartUI()
+// {
+//     yield return new WaitForSeconds(3f); // Wait for 3 seconds
+//     DisplayRestartUI();
+// }
+
 
 
 }

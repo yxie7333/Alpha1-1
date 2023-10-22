@@ -81,10 +81,13 @@ public class Player : MonoBehaviour
         // Skill Operation
         if (Input.GetKeyDown(KeyCode.K))
         {
-            myAnim.SetTrigger("Skill");
-            playerBlade--;
-            PlayerPrefs.SetInt("PlayerBlade", playerBlade);
-            myCanvas.BladeUpdate(); 
+            if (playerBlade > 0)
+            {
+                myAnim.SetTrigger("Skill");
+                playerBlade--;
+                PlayerPrefs.SetInt("PlayerBlade", playerBlade);
+                myCanvas.BladeUpdate();
+            }
         }
 
         //if (Input.GetKeyDown(KeyCode.Return))
@@ -204,6 +207,7 @@ public class Player : MonoBehaviour
             playerLife--;
             PlayerPrefs.SetInt("PlayerLife", playerLife);
             myCanvas.LifeUpdate();
+
             // when player is alive
             if (playerLife >= 1) {
                 isHurt = true;
