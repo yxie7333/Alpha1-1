@@ -4256,7 +4256,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1327128361}
+  - component: {fileID: 1327128363}
   - component: {fileID: 1327128360}
   - component: {fileID: 1327128359}
   - component: {fileID: 1327128362}
@@ -4345,21 +4345,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &1327128361
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1327128357}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 950, y: 388, z: -8898.054}
-  m_LocalScale: {x: 40.123188, y: 40.40633, z: 98.86726}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1375573185}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1327128362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4374,6 +4359,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   alphabetObjects: []
   resultText: {fileID: 1756535795}
+--- !u!224 &1327128363
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1327128357}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -8898.054}
+  m_LocalScale: {x: 40.123188, y: 40.40633, z: 98.86726}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1375573185}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 1.8199, y: -89.92999}
+  m_SizeDelta: {x: 3.64, y: 3.6400146}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1328502641
 GameObject:
   m_ObjectHideFlags: 0
@@ -4809,7 +4814,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1327128361}
+  - {fileID: 1327128363}
   - {fileID: 929755868}
   - {fileID: 1367744319}
   - {fileID: 2064200021}
